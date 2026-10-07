@@ -1,26 +1,30 @@
-    const prompt = require('prompt-sync')();
+const prompt = require('prompt-sync')();
 
-    function max(...numbers) {
+function max(...numbers) {
     let maxVal = -Infinity;
-    for (const number of numbers) { if (number > maxVal) maxVal = number; }
+    for (const number of numbers) {
+        if (number > maxVal) maxVal = number; 
+    }
     return maxVal;
-    }
+}
 
-    function calcAverage(...numbers) {
+function calcAverage(...numbers) {
     let total = 0;
-    for (let i = 0; i < numbers.length; i++) { total += numbers[i]; }
+    for (let i = 0; i < numbers.length; i++) total += numbers[i];
     return total / numbers.length;
-    }
+}
 
-    // Accepts either a valid number or the command "back" (case-insensitive)
-    function userInput(message, errorMessage) {
-    let input = prompt(message).trim();
-    while (input.toLowerCase() !== 'back' && (isNaN(input) || input === '')) { input = prompt(errorMessage).trim(); }
-    return input.toLowerCase() === 'back' ? 'back' : Number(input);
-    }
+// Accepts either a valid number or the command "back" (case-insensitive)
+function userInput(message, errorMessage) {
+let input = prompt(message).trim();
+while (input.toLowerCase() !== 'back' && (isNaN(input) || input === '')) {
+    input = prompt(errorMessage).trim(); 
+}
+return input.toLowerCase() === 'back' ? 'back' : Number(input);
+}
 
-    let array = [];
-    let choice = 0;
+let array = [];
+let choice = 0;
 
 while (true) {
     console.log("\n===== Grade Manager =====\n\t1. Add Grades\n\t2. Remove Grades\n\t3. Calculate Average\n\t4. Find Highest Grade\n\t5. Print All Grades\n\t6. Exit");
