@@ -14,7 +14,6 @@ function calcAverage(...numbers) {
     return total / numbers.length;
 }
 
-// Accepts either a valid number or the command "back" (case-insensitive)
 function userInput(message, errorMessage) {
 let input = prompt(message).trim();
 while (input.toLowerCase() !== 'back' && (isNaN(input) || input === '')) {
